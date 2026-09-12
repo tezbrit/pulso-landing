@@ -1,0 +1,81 @@
+---
+const projects = [
+    {
+        title: "Campaña rápida - Heladería Luigi (IA + Motion)",
+        description: "Producción realizada en 3 días utilizando imágenes generadas con IA y animación en motion graphics. Pensado para redes sociales y campañas digitales. Este tipo de piezas permite generar contenido atractivo sin necesidad de rodaje, reduciendo tiempos y costos. Aplicable a campañas comerciales, contenido para redes y piezas publicitarias de rápida ejecución.",
+        tags: ["Motion Graphics", "Inteligencia Artificial", "Marketing Digital"],
+        vimeoId: "1181224190",
+        reverse: false // Video a la izquierda, texto a la derecha
+    },
+    {
+        title: "Agitá La Bienal 2026",
+        description: "Pieza audiovisual para la difusión de la convocatoria “Agitá la Bienal”, orientada a artistas emergentes. Desarrollada para redes sociales, con foco en impacto visual, ritmo y claridad comunicacional. Se animaron dos esculturas icónicas del Chaco: La escultura de “El Perro Fernando” y “El David” ambas emplazadas en la ciudad de Resistencia.",
+        tags: ["Motion Graphics", "VFX", "Inteligencia Artificial"],
+        vimeoId: "1178294602",
+        reverse: true // Texto a la izquierda, video a la derecha (solo en desktop)
+    },
+    {
+        title: "ABAPPRA-2025",
+        description: "Video de bienvenida para los directores de los principales bancos del país, presentado por NBCH, en el último congreso de ABAPPRA (Asociación de Bancos Públicos y Privados de la República Argentina) realizado en Resistencia, Chaco, en noviembre de 2025. Pieza institucional con enfoque emocional, combinando identidad institucional y narrativa cercana para generar conexión con la audiencia.",
+        tags: ["Comuniación Corporativa", "Edición de Video", "Video Institucional"],
+        vimeoId: "1172754910",
+        reverse: false // Video a la izquierda, texto a la derecha
+    },
+    {
+        title: "NBCH - Educación Financiera",
+        description: "Desarrollo de contenido audiovisual orientado a educación financiera, enfocado en comunicar conceptos de forma clara y accesible. Diseñado para plataformas digitales, priorizando comprensión, dinamismo y adaptación al público adolescente. Target: (13-17 años), Medios: TikTok, Instagram, Youtube Shorts.",
+        tags: ["Motion Graphics", "VFX", "Inteligencia Artificial"],
+        vimeoId: "1176285853",
+        reverse: true // Texto a la izquierda, video a la derecha (solo en desktop)
+    }
+];
+---
+
+<section id="portfolio" class="w-full min-h-screen bg-[#0046fd] text-white py-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-16 flex flex-col gap-24 lg:gap-32">
+        
+        {projects.map((project, index) => (
+            // <!-- 
+            // En escritorio: grid de 2 columnas.
+            // -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+                <div class={`scroll-reveal opacity-0 translate-y-12 lg:translate-y-0 ${project.reverse ? 'lg:translate-x-20 lg:order-2' : 'lg:-translate-x-20 lg:order-1'} transition-all duration-1000 ease-out w-full`}>
+                    
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-black border border-white/10 bg-black/30 group">
+                        <iframe 
+                            src={`https://player.vimeo.com/video/${project.vimeoId}?title=0&byline=0&portrait=0`} 
+                            class="absolute top-0 left-0 w-full h-full"
+                            allow="autoplay; fullscreen; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DEL TEXTO -->
+                <!-- Delay-200 para que el texto aparezca una fracción de segundo después del video -->
+                <div class={`scroll-reveal opacity-0 translate-y-12 lg:translate-y-0 ${project.reverse ? 'lg:-translate-x-20 lg:order-1' : 'lg:translate-x-20 lg:order-2'} transition-all duration-1000 ease-out delay-200 flex flex-col justify-center`}>
+                    
+                    <h3 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+                        {project.title}
+                    </h3>
+                    
+                    <p class="text-gray-200 text-lg font-light leading-relaxed mb-8">
+                        {project.description}
+                    </p>
+                    
+                    <!-- Etiquetas (Tags) -->
+                    <div class="flex flex-wrap gap-2">
+                        {project.tags.map(tag => (
+                            <span class="px-3 py-1.5 rounded-full border border-white/20 text-xs font-medium text-gray-300 tracking-wider">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+
+                </div>
+
+            </div>
+        ))}
+
+    </div>
+</section>

@@ -1,0 +1,59 @@
+---
+import PulsoLogo from '../components/ui/PulsoLogo.astro';
+import SocialPills from '../components/ui/SocialPills.astro';
+import '../styles/global.css';
+---
+
+<header class="relative w-full h-screen flex flex-col items-center justify-center overflow-hidden">
+
+    <!-- Video Background de Vimeo -->
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[#0046fd]">
+        <iframe 
+            src="https://player.vimeo.com/video/1172591850?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1" 
+            class="absolute top-1/2 left-1/2 w-screen h-[56.25vw] min-h-screen min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2"
+            frameborder="0" 
+            allow="autoplay; fullscreen"
+        ></iframe>
+        <!-- Overlay oscuro para garantizar la legibilidad del logo -->
+        <div class="absolute inset-0 z-10 bg-linear-to-b from-black via-[#0046fd]/90 to-[#0046fd] "></div>
+    </div>
+
+        <!-- Contenido Central (Logo) -->
+    <div class="relative z-20 flex flex-col items-center lg:inset-shadow-sm lg:inset-shadow-white/20  lg:border lg:border-black/10  lg:bg-black/20 lg:shadow-2xl lg:rounded-[100px] lg:p-20 text-gray-300 lg:backdrop-blur-[20px]">
+        <!-- Reemplaza con la ruta de tu SVG -->
+        <PulsoLogo class="lg:h-50" />
+        <h1 class="mt-6 text-sm md:text-base tracking-[0.3em] font-light  uppercase text-center">
+            Producciones Audiovisuales
+        </h1>
+        <div class="flex items-center justify-center gap-2 pt-2">
+            <SocialPills href="mailto:Marcelo@pulsostudio.com.ar">
+                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+                    <path d="M3 7l9 6l9 -6" />
+                </svg>
+            </SocialPills>
+            <SocialPills href="https://www.linkedin.com/in/marcelo-cabral-39b61a329/">
+                <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+                    <path d="M8 11l0 5" />
+                    <path d="M8 8l0 .01" />
+                    <path d="M12 16l0 -5" />
+                    <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+                </svg>
+            </SocialPills> 
+        </div>
+    </div>
+
+        <!-- Indicador de Scroll -->
+    <div class="absolute bottom-10 z-20 animate-bounce">
+        <a href="#projects" class="flex flex-col items-center text-gray-400 hover:text-white transition-colors duration-300" aria-label="Hacer scroll hacia el portfolio">
+            <span class="text-xs uppercase tracking-widest mb-2">Descubrir</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </a>
+    </div>
+
+</header>

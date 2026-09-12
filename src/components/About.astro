@@ -1,0 +1,50 @@
+---
+// src/components/sections/About.astro
+---
+
+<!-- Agregamos overflow-hidden a la sección para evitar barras de scroll horizontales durante la animación -->
+<section id="about" class="min-h-screen w-full bg-[#0046fd] text-white flex items-center py-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        
+        <!-- COLUMNA IZQUIERDA -->
+        <!-- Clases iniciales: opacidad 0, y en móvil bajado en Y. En LG: resetea Y, y movido a la izquierda en X -->
+        <div class="scroll-reveal opacity-0 translate-y-12 lg:translate-y-0 lg:-translate-x-20 transition-all duration-1000 ease-out lg:col-span-5 flex flex-col justify-center">
+            
+            <span class="uppercase tracking-[0.2em] text-blue-200 text-sm font-semibold mb-6 block">
+                Nuestro Enfoque
+            </span>
+            
+            <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
+                Imágenes <br/> 
+                <span class="text-transparent bg-clip-text bg-linear-to-r from-white to-blue-300">
+                    que laten.
+                </span>
+            </h2>
+            
+            <div class="flex flex-wrap gap-3 mt-10">
+                <span class="px-4 py-1.5 rounded-full border border-white/30 text-sm bg-white/5">Motion Graphics</span>
+                <span class="px-4 py-1.5 rounded-full border border-white/30 text-sm bg-white/5">Inteligencia Artificial</span>
+                <span class="px-4 py-1.5 rounded-full border border-white/30 text-sm bg-white/5">Alto Impacto</span>
+            </div>
+        </div>
+
+        <!-- COLUMNA DERECHA -->
+        <!-- Mismas clases base, pero en LG arranca desde la derecha (translate-x-20). Le sumamos un 'delay-200' para que entre un instante después que el título -->
+        <div class="scroll-reveal opacity-0 translate-y-12 lg:translate-y-0 lg:translate-x-20 transition-all duration-1000 ease-out delay-200 lg:col-span-7 flex flex-col gap-8 text-blue-50/90">
+            
+            <p class="text-2xl md:text-3xl leading-snug font-medium text-white">
+                Combinamos creatividad, motion graphics e inteligencia artificial para desarrollar campañas audiovisuales que capten la atención y generen resultados.
+            </p>
+            
+            <div class="flex flex-col gap-6 text-lg md:text-xl font-light leading-relaxed">
+                <p>
+                    Nos involucramos en cada proyecto para encontrar la mejor idea posible, explorando distintas alternativas hasta dar con un concepto sólido, memorable y alineado con los objetivos de comunicación de cada marca.
+                </p>
+                <p>
+                    Creamos contenido visual de alto impacto, optimizado para medios digitales y producido con eficiencia y velocidad.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>

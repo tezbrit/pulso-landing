@@ -1,0 +1,53 @@
+/* 1. Efecto de filtro y movimiento (90% en reposo, 10% de glitch) */
+@keyframes glitchFilter {
+    /* Estado normal: del 0% al 90% no hace nada */
+    0%, 90% {
+        filter: blur(0);
+        transform: translate(0) skewX(0);
+    }
+    /* Comienza el glitch */
+    92% {
+        filter: blur(1px) drop-shadow(3px 0 0 cyan) drop-shadow(-3px 0 0 red);
+        transform: translate(-3px, 1px) skewX(5deg);
+    }
+    94% {
+        filter: blur(0);
+        transform: translate(0) skewX(0);
+    }
+    96% {
+        filter: blur(2px) drop-shadow(-3px 0 0 lime) drop-shadow(3px 0 0 magenta);
+        transform: translate(3px, -1px) skewX(-5deg);
+    }
+    98% {
+        filter: blur(1px);
+        transform: translate(1px, 2px) skewX(0);
+    }
+    /* Vuelve a la normalidad para el final del loop */
+    100% {
+        filter: blur(0);
+        transform: translate(0) skewX(0);
+    }
+}
+
+/* 2. Parpadeo de color en el vector (90% en reposo, 10% de glitch) */
+@keyframes glitchStroke {
+    /* Estado normal: asumiendo que el color base es blanco o gris */
+    0%, 90% { stroke: currentColor; } 
+    92% { stroke: cyan; }
+    94% { stroke: transparent; }
+    96% { stroke: magenta; }
+    98% { stroke: yellow; }
+    100% { stroke: currentColor; }
+}
+
+/* 3. Clase unificada */
+.glitch-logo {
+    /* 
+    Aumentamos la duración a 4 segundos. 
+    Como el glitch ocurre en el último 10% de los keyframes, 
+    el efecto durará 0.4s y la pausa durará 3.6s.
+    */
+    animation: 
+        glitchFilter 3s step-end infinite, 
+        glitchStroke 2s step-end infinite;
+}

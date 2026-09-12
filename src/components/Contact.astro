@@ -1,0 +1,66 @@
+---
+// src/components/sections/Contact.astro
+---
+
+<section id="contacto" class="relative w-full min-h-[70vh] bg-black text-white py-32 flex flex-col items-center justify-center overflow-hidden">
+    
+    <!-- Efecto de luz de fondo (Glow) usando el azul de la marca -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[40vw] md:h-[40vw] bg-[#0046fd] rounded-full blur-[150px] opacity-20 pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-3xl mx-auto px-6 flex flex-col items-center text-center">
+        
+        <!-- Textos animados hacia arriba -->
+        <div class="scroll-reveal opacity-0 translate-y-12 transition-all duration-1000 ease-out">
+            <span class="uppercase tracking-[0.2em] text-blue-400 text-sm font-semibold mb-6 block">
+                ¿Trabajamos juntos?
+            </span>
+            
+            <h2 class="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+                Dale <span class="text-transparent bg-clip-text bg-linear-to-r from-white to-blue-500">vida</span> <br/> 
+                a tu proyecto.
+            </h2>
+            
+            <p class="text-gray-400 text-lg md:text-xl font-light mb-12 max-w-2xl mx-auto">
+                Estamos listos para transformar tus ideas en contenido visual de alto impacto. Escribinos y empecemos a crear.
+            </p>
+        </div>
+
+        <!-- Botones animados con delay -->
+        <div class="scroll-reveal opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-200 flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
+            
+            <!-- Botón Principal: Email (Sólido para destacar más) -->
+            <a 
+                href="mailto:Marcelo@pulsostudio.com.ar" 
+                class="group flex items-center justify-center gap-3 px-8 py-4 bg-white text-black rounded-full font-semibold text-lg hover:scale-105 transition-transform duration-300"
+            >
+                <!-- SVG de Correo -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+                    <path d="M3 7l9 6l9 -6" />
+                </svg>
+                Marcelo@pulsostudio.com.ar
+            </a>
+
+            <!-- Botón Secundario: LinkedIn (Borde transparente) -->
+            <a 
+                href="https://linkedin.com/in/tucliente" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="group flex items-center justify-center gap-3 px-8 py-4 bg-transparent border border-white/20 text-white rounded-full font-semibold text-lg hover:bg-white/10 hover:border-white/40 hover:scale-105 transition-all duration-300"
+            >
+                <!-- SVG de LinkedIn -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+                    <path d="M8 11l0 5" />
+                    <path d="M8 8l0 .01" />
+                    <path d="M12 16l0 -5" />
+                    <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+                </svg>
+                LinkedIn
+            </a>
+
+        </div>
+    </div>
+</section>

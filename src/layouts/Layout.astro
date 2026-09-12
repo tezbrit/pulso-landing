@@ -1,0 +1,50 @@
+---
+// src/layouts/Layout.astro
+const { title = "PULSO Studios | Productora Audiovisual" } = Astro.props;
+---
+
+<html lang="es" class="scroll-smooth">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{title}</title>
+        <link rel="preconnect" href="https://player.vimeo.com" />
+        <link rel="preconnect" href="https://i.vimeocdn.com" />
+        <link rel="preconnect" href="https://f.vimeocdn.com" />
+        <link rel="icon" type="svg" href="/favicon.svg">
+    </head>
+    <body class="bg-black text-white antialiased overflow-x-hidden">
+        
+        <!-- Aquí Astro inyectará tu Hero, About, Portfolio, etc. -->
+        <slot />
+
+        <!-- SCRIPT GLOBAL DE ANIMACIÓN AL SCROLL -->
+        <script>
+            // Envolvemos la lógica en una función
+            const initScrollReveal = () => {
+                const revealElements = document.querySelectorAll('.scroll-reveal');
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            // Limpiamos TODAS las posibles clases de estado inicial
+                            entry.target.classList.remove(
+                                'opacity-0', 
+                                'translate-y-12', 
+                                '-translate-y-12', 
+                                'lg:-translate-x-20', 
+                                'lg:translate-x-20'
+                            );
+                        }
+                    });
+                }, {
+                    threshold: 0.15, // Dispara cuando el 15% del elemento es visible
+                    rootMargin: "0px 0px -50px 0px" 
+                });
+
+                revealElements.forEach((el) => observer.observe(el));
+            };
+            initScrollReveal();
+        </script>
+    </body>
+</html>
