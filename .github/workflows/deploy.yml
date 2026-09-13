@@ -29,6 +29,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: ./domains/pulsostudio.com.ar/public_html/
-          protocol: ftps
-          dangerous-clean-slate: false
-          timeout: 30000
+          protocol: FTP_SERVER
+          concurrency: 1
+          dry-run: false
