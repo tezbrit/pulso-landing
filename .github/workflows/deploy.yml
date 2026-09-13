@@ -28,7 +28,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: ./domains/pulsostudio.com.ar/public_html/
+          server-dir: ./
           protocol: ftps
           security: loose
           timeout: 60000
